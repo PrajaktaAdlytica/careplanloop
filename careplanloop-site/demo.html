@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172a22">
+  <meta name="description" content="Explore three synthetic CarePlanLoop workflow examples. This concept demo does not provide clinical guidance or connect to live systems.">
+  <title>Synthetic workflow demo — CarePlanLoop</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body class="demo-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="index.html" aria-label="CarePlanLoop home"><img src="assets/careplanloop-logo-light.svg" alt="CarePlanLoop"></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><svg aria-hidden="true"><use href="assets/icons.svg#menu"></use></svg></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="index.html#platform">Platform</a><a href="index.html#modules">Modules</a><a href="index.html#validation">Validation</a><a href="index.html#about">About</a><a class="nav-cta" href="index.html#pilot">Discuss a scoped pilot <svg aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"></use></svg></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="demo-hero">
+      <div class="wrap demo-hero-grid"><div class="chapter-index"><span>DEMO</span><i></i><span>SYNTHETIC ONLY</span></div><div class="demo-hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> An illustrative month in one care workflow</p><h1>Every handoff keeps its source, owner, and <em>review state.</em></h1><p class="body-light">Switch between a clean handoff, an ambiguous exception, and a blocked case. All names, identifiers, dates, and events are fictional. No PHI, live integrations, clinical recommendations, or external actions.</p></div></div>
+    </section>
+    <section class="demo-main" id="main-demo">
+      <div class="wrap">
+        <div class="demo-intro-page"><h2>One-condition program · month timeline</h2><p>Reported information, staff action, consent event, clinician sign-off, and billing-review evidence are separate event types. The example stops at a human reviewer.</p></div>
+        <section class="case-explorer" aria-label="Synthetic case explorer">
+          <div class="case-explorer-top"><div><span class="micro-label">CONCEPT PREVIEW / READ-ONLY</span><h3>Sample queue · fictional record set</h3></div><span class="demo-label demo-label-light"><i></i> DEMO — SYNTHETIC DATA</span></div>
+          <div class="case-toolbar"><div class="case-tabs" role="group" aria-label="Choose a synthetic example case">
+            <button class="case-tab is-active" type="button" data-case-id="clean" aria-pressed="true"><span>01</span> Clean handoff</button>
+            <button class="case-tab" type="button" data-case-id="ambiguous" aria-pressed="false"><span>02</span> Ambiguous exception</button>
+            <button class="case-tab" type="button" data-case-id="blocked" aria-pressed="false"><span>03</span> Blocked / abstained</button>
+          </div><span class="filter-note"><svg aria-hidden="true"><use href="assets/icons.svg#filter"></use></svg> Example cases only</span></div>
+          <div class="case-layout">
+            <aside class="case-summary" data-case-summary aria-live="polite">
+              <div class="summary-top"><span class="case-id">SYN-028-A</span><span class="case-status status-reviewed"><i></i><span>Trace complete in example</span></span></div>
+              <h4>Clean handoff</h4><p>Consent, source, reviewer, and staff activity remain visible as separate events.</p>
+              <dl><div><dt>PROGRAM</dt><dd>Hypertension · fictional</dd></div><div><dt>OWNER</dt><dd>Clinical reviewer role</dd></div><div><dt>STATUS</dt><dd>Clinician sign-off recorded</dd></div></dl>
+              <div class="summary-boundary"><svg aria-hidden="true"><use href="assets/icons.svg#info"></use></svg><span>Example state only. No diagnosis, treatment, or billing determination.</span></div>
+            </aside>
+            <div class="case-events-wrap"><div class="case-events-label"><span>EVENT TRACE</span><span>LOCAL TIME · MAY</span></div><ol class="case-events" data-case-events aria-live="polite"></ol>
+              <div class="billing-lane"><div class="billing-lane-icon"><svg aria-hidden="true"><use href="assets/icons.svg#clock"></use></svg></div><div><small>SEPARATE STAFF ACTIVITY LANE</small><b data-staff-title>Contact/time record · 14 May, 09:21</b><span data-staff-desc>Shown for billing review only; not a billing determination.</span></div><span class="billing-review-tag">Review evidence</span></div>
+              <div class="case-end-state" data-case-end><svg aria-hidden="true"><use href="assets/icons.svg#pause"></use></svg><span>Human review is required before any clinical action.</span></div>
+            </div>
+          </div>
+          <div class="case-foot"><span>All names, dates, IDs, and events are fictional.</span><span>No patient outreach · no live integrations · no PHI</span></div>
+        </section>
+        <div class="demo-boundaries"><article><h3>Reported reading</h3><p>A device event stays attached to its source and timestamp; this demo does not interpret the reading.</p></article><article><h3>Human ownership</h3><p>Clinical review is a named human task. No diagnosis, treatment suggestion, or dose change appears.</p></article><article><h3>Separate billing evidence</h3><p>Staff-time documentation is a distinct lane for billing review, not a guarantee of service eligibility or billability.</p></article></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand"><a href="index.html"><img src="assets/careplanloop-logo-light.svg" alt="CarePlanLoop"></a><p>Keep chronic-care work visible without mistaking automated touches for billable care.</p><span class="footer-stage">Research-stage concept · No live product</span></div><div class="footer-links"><div><b>Explore</b><a href="index.html#platform">Workflow</a><a href="index.html#modules">Proposed modules</a><a href="index.html#validation">Validation plan</a></div><div><b>For teams</b><a href="index.html#pilot">Pilot gates</a><a href="index.html#contact">Contact / workflow fit</a><a href="index.html#about">About the concept</a></div><div><b>Important context</b><span>CCM and RPM are distinct services.</span><span>Every event is not automatically billable.</span><span>No independent clinical triage.</span></div></div></div><div class="wrap footer-bottom"><span>© CarePlanLoop · Working concept name; not legally cleared.</span><span>DEMO data is synthetic. No patient information is collected by this prototype.</span><a href="#main">Back to top ↑</a></div></footer>
+</body>
+</html>

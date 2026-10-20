@@ -1,0 +1,125 @@
+/* The film and hero occupy one stable canvas. No reflow at the handoff. */
+.thread-intro {
+  --thread-inset: 7%;
+  --thread-line-top: clamp(140px, 24svh, 220px);
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  background: #152a22;
+  color: #f3f0e8;
+}
+body:has(.thread-intro) .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  background: #152a22f5;
+  transition: opacity .8s ease, visibility .8s;
+}
+body:has(.thread-intro[data-phase="intro"]) .site-header,
+body:has(.thread-intro[data-phase="intro"]) > .page-progress {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.thread-handoff-line {
+  position: absolute;
+  top: var(--thread-line-top);
+  left: var(--thread-inset);
+  right: var(--thread-inset);
+  height: 1.5px;
+  background: #cda881;
+  transform: translateY(-.75px);
+}
+.thread-handoff-line i {
+  position: absolute;
+  right: -3px;
+  top: -2.25px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cda881;
+}
+.thread-hero {
+  padding: calc(var(--thread-line-top) + 44px) var(--thread-inset) 128px;
+  max-width: 1600px;
+  margin-inline: auto;
+}
+.thread-eyebrow {
+  margin: 0 0 26px;
+  color: #b5c2b6;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: .13em;
+}
+.thread-hero h1 {
+  max-width: 1100px;
+  margin: 0;
+  font-size: clamp(34px, 4.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+.thread-hero h1 span, .thread-hero h1 em {display: block;}
+.thread-hero h1 em {margin-top: 8px; font-family: var(--serif); font-weight: 400; color: #cda881;}
+.thread-hero h1:focus {outline: none;}
+.thread-description {max-width: 640px; margin: 28px 0 0; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.75; color: #b7c5ba;}
+.thread-hero-actions {display: flex; align-items: center; flex-wrap: wrap; gap: 24px 32px; margin-top: 32px;}
+.thread-hero-actions .button, .thread-hero-actions .text-link {margin: 0; flex-shrink: 0;}
+.thread-hero-actions .button {min-height: 56px;}
+.thread-hero-footer {position: absolute; bottom: 30px; left: var(--thread-inset); right: var(--thread-inset); display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #9eafa1; font-size: 11px;}
+.thread-hero-footer a, .thread-hero-footer button {display: inline-flex; align-items: center; gap: 12px; color: #c2cfc4; text-decoration: none; background: none; border: 0; padding: 10px 0; cursor: pointer; font: inherit;}
+.thread-hero-footer svg {width: 16px; height: 16px;}
+.thread-hero-footer a:hover, .thread-hero-footer button:hover {color: #f3f0e8;}
+.thread-film {position: absolute; inset: 0; z-index: 2; overflow: hidden; background: #152a22;}
+.thread-film-poster {position: absolute; inset: 0; background: #152a22 url('/assets/intro/held-by-a-thread.png') 43% center / cover no-repeat;}
+.thread-skip, .thread-playback button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  color: #f3f0e8;
+  background: #152a2270;
+  border: 1px solid #e7eadd38;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font: 13px var(--sans, "Instrument Sans", sans-serif);
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+.thread-skip:hover, .thread-playback button:hover {background: #152a22d9; border-color: #cda881;}
+.thread-skip {position: absolute; top: 24px; right: var(--thread-inset); z-index: 4;}
+.thread-skip svg, .thread-playback button svg {width: 17px; height: 17px; flex: none;}
+.thread-playback {position: absolute; left: var(--thread-inset); top: 24px; display: flex; align-items: center; gap: 16px; z-index: 3;}
+.thread-progress {width: 88px; height: 1px; background: #e7eadd38; overflow: hidden;}
+.thread-progress i {display: block; width: 100%; height: 100%; background: #e2bc98; transform: scaleX(0); transform-origin: left;}
+.thread-duration {font: 11px var(--sans, sans-serif); color: #c5d0c7; font-variant-numeric: tabular-nums;}
+.thread-intro[data-phase="intro"] .thread-hero,
+.thread-intro[data-phase="intro"] .thread-hero-footer,
+.thread-intro[data-phase="intro"] .thread-handoff-line {opacity: 0; visibility: hidden;}
+.thread-intro[data-phase="hero"] .thread-hero > * {animation: thread-arrive .9s both cubic-bezier(.2,.7,.2,1);}
+.thread-intro[data-phase="hero"] .thread-hero h1 {animation-delay: .12s;}
+.thread-intro[data-phase="hero"] .thread-description {animation-delay: .26s;}
+.thread-intro[data-phase="hero"] .thread-hero-actions {animation-delay: .4s;}
+.thread-intro[data-phase="hero"] .thread-hero-footer {animation: thread-arrive .8s .55s both ease;}
+@keyframes thread-arrive {from {opacity: 0; transform: translateY(16px);} to {opacity: 1; transform: translateY(0);}}
+@media(min-width: 1600px) {.thread-hero {max-width: none;}}
+@media(max-width: 600px) {
+  .thread-hero {padding-bottom: 150px;}
+  .thread-eyebrow {font-size: 10px; letter-spacing: .1em; max-width: 30ch;}
+  .thread-hero h1 {font-size: clamp(33px, 7.5vw, 44px); line-height: 1.16;}
+  .thread-hero-actions {align-items: flex-start; flex-direction: column; gap: 22px;}
+  .thread-hero-actions .button {font-size: 13px; padding-inline: 18px; gap: 12px; max-width: 100%; white-space: normal;}
+  .thread-hero-footer {flex-wrap: wrap; gap: 4px 16px; bottom: 24px; font-size: 10px;}
+  .thread-hero-footer > span {flex-basis: 100%;}
+  .thread-progress {width: 38px;}
+  .thread-duration {display: none;}
+  .thread-playback {gap: 10px;}
+  .thread-skip, .thread-playback button {font-size: 12px; padding-inline: 13px;}
+}
+@media(prefers-reduced-motion: reduce) {
+  .thread-intro .thread-hero > *, .thread-intro .thread-hero-footer {animation: none!important;}
+  .thread-replay {display: none!important;}
+  body:has(.thread-intro) .site-header {transition: none;}
+}
