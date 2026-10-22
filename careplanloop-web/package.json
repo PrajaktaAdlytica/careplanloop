@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "intro:studio": "remotion studio remotion/index.jsx --no-open --port=3002"
+    "intro:studio": "remotion studio remotion/index.jsx --no-open --port=3002",
+    "hostinger:publish": "npm run build && bash scripts/publish-hostinger.sh"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",
