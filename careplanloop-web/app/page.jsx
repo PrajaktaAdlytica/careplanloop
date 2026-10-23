@@ -13,6 +13,8 @@ export default function HomePage() {
     <main id="main-content" className="home-atlas">
       <ThreadIntro />
 
+      <aside className="funding-announcement" aria-label="Funding announcement"><div className="wrap"><span>FUNDING ANNOUNCEMENT</span><p>CarePlanLoop has received venture capital funding. The investor name and funding amount will be announced later.</p></div></aside>
+
       <nav className="story-directory" aria-label="Homepage story chapters"><div className="wrap"><span>FOLLOW THE HANDOFF</span><a href="#workflow-gap"><i>01</i> Understand the gap</a><a href="#month-in-view"><i>02</i> Follow a record</a><a href="#modules"><i>03</i> Explore the modules</a><a href="#pilot"><i>04</i> Shape a pilot <Icon name="arrow-down" /></a></div></nav>
 
       <section className="chapter chapter-paper gap-chapter" id="workflow-gap">

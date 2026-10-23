@@ -58,6 +58,17 @@ main :where(.hero-actions,.demo-actions,.continuity-actions){row-gap:20px;column
  .case-layout{grid-template-columns:1fr}.case-summary{border-right:0;border-bottom:1px solid #d7ddd4}.case-events-wrap{padding:24px}
  .form-row{grid-template-columns:1fr;gap:0}.footer-links{gap:24px}
 }
+.funding-announcement{background:#e4e8dc;color:#193328;border-bottom:1px solid #cbd1c7}
+.funding-announcement .wrap{display:grid;grid-template-columns:220px minmax(0,1fr);align-items:center;gap:22px;padding-block:20px}
+.funding-announcement span{font-size:10px;letter-spacing:.13em;color:#8a674f}
+.funding-announcement p{margin:0;font-size:14px;line-height:1.6}
+.company-address,.contact-address,.company-details address{font-style:normal;line-height:1.7}
+.footer-brand .company-address{display:block;margin-top:20px;color:#c5d0c4;font-size:11px}
+.company-details{background:#f4f2e9;border-top:1px solid #cbd1c7;padding-block:42px}
+.company-details h2{margin:0 0 12px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.company-details address{font-size:14px;color:#667368}
+.contact-address{display:block;margin:24px 0;color:#486a55;font-size:13px}
+@media(max-width:600px){.funding-announcement .wrap{grid-template-columns:1fr;gap:7px;padding-block:18px}.funding-announcement p{font-size:13px}}
 @media(max-width:600px){
  :root{--page-gutter:24px;--section-space:56px;--copy-gap:16px}
  .home-atlas .chapter:not(.hero),.content-section{padding-block:56px}

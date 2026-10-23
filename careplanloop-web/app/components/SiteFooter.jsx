@@ -9,6 +9,7 @@ export default function SiteFooter() {
           <Link href="/"><img src="/assets/careplanloop-logo-light.svg" alt="CarePlanLoop" /></Link>
           <p>Keep chronic-care work visible without mistaking automated touches for billable care.</p>
           <span className="footer-stage">Research-stage concept · No live product</span>
+          <address className="company-address">No. 47 Hoang Van Thu, Pleiku<br />Pleiku, Gia Lai<br />Vietnam</address>
         </div>
         <div className="footer-links">
           <div><b>Explore</b><Link href="/platform">Platform</Link><Link href="/modules">Proposed modules</Link><Link href="/demo">Synthetic demo</Link><Link href="/pricing">Pricing hypothesis</Link></div>
